@@ -1,0 +1,37 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: var(--font-montserrat), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-playfair), ui-serif, Georgia, serif;
+  
+  --color-marrom-escuro-1: #1B0F03;
+  --color-marrom-claro-1: #412912;
+  --color-marrom-claro-2: #D19C57;
+  --color-verde-escuro-1: #14250A;
+  --color-verde-claro-1: #587149;
+  --color-branco-creme-1: #F8F6E5;
+}
+
+:root {
+  --marrom-escuro-1: #1B0F03;
+  --marrom-claro-1: #412912;
+  --marrom-claro-2: #D19C57;
+  --verde-escuro-1: #14250A;
+  --verde-claro-1: #587149;
+  --branco-creme-1: #F8F6E5;
+  
+  --primary: var(--marrom-claro-2);
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--branco-creme-1);
+  color: var(--marrom-escuro-1);
+}
+
+/* Custom Utilities if needed */
+@layer utilities {
+  .hero-overlay {
+    background: linear-gradient(180deg, rgba(18, 22, 18, 0.4) 0%, rgba(18, 22, 18, 0.7) 100%);
+  }
+}
