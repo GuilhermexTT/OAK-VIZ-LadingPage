@@ -92,9 +92,9 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
               <h2 className="font-serif text-3xl text-marrom-escuro-1 mb-8 text-center">Vídeos</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 {project.youtubeVideos.map((url, index) => {
-                  // Extrair ID do vídeo para iframe
+                  // Extrair ID do vídeo para iframe (suporta watch, shorts, embed, etc)
                   let videoId = '';
-                  const match = url.match(/(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))([^&?]+)/);
+                  const match = url.match(/(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=|shorts\/))([^&?]+)/);
                   if (match && match[1]) {
                     videoId = match[1];
                   }
