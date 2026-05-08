@@ -46,10 +46,10 @@ export default function Hero() {
         </div>
 
         {/* Scroll Indicator */}
-        <div className="mt-16 animate-slow-bounce cursor-pointer flex flex-col items-center gap-2">
-          <span className="text-[10px] uppercase tracking-[0.3em] text-marrom-escuro-1/60 font-bold">Descubra</span>
-          <ChevronDown className="w-5 h-5 text-marrom-escuro-1" strokeWidth={1.5} />
-        </div>
+        <a href="#portfolio" className="mt-16 animate-slow-bounce cursor-pointer flex flex-col items-center gap-2 pointer-events-auto group">
+          <span className="text-[10px] uppercase tracking-[0.3em] text-marrom-escuro-1/60 font-bold group-hover:text-marrom-claro-2 transition-colors">Descubra</span>
+          <ChevronDown className="w-5 h-5 text-marrom-escuro-1 group-hover:text-marrom-claro-2 transition-colors" strokeWidth={1.5} />
+        </a>
       </div>
 
       <style jsx>{`
