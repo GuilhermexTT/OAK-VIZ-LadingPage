@@ -2,10 +2,24 @@
 
 import { motion } from 'framer-motion';
 
-export default function TestimonialsSection() {
+import Image from 'next/image';
+
+type Testimonial = {
+  _id: string;
+  name: string;
+  role?: string;
+  quote: string;
+  imageUrl?: string;
+};
+
+interface Props {
+  testimonials?: Testimonial[];
+}
+
+export default function TestimonialsSection({ testimonials = [] }: Props) {
   return (
-    <section id="depoimentos" className="bg-[#F8F6E5] text-[#14250A] py-24 md:py-32 px-8">
-      <div className="container mx-auto max-w-6xl">
+    <section id="depoimentos" className="bg-[#F8F6E5] text-[#14250A] py-24 md:py-32 overflow-hidden">
+      <div className="container mx-auto max-w-6xl px-4 md:px-8">
         <motion.h2 
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -15,8 +29,51 @@ export default function TestimonialsSection() {
         >
           O Que Nossos Clientes Dizem
         </motion.h2>
+      </div>
         
-        {/* Espaço reservado para os depoimentos que virão do Sanity CMS futuramente */}
+      <div className="container mx-auto max-w-[100vw] px-4 md:px-8">
+        {testimonials.length > 0 ? (
+          <div className="flex overflow-x-auto pb-12 snap-x snap-mandatory gap-6 md:gap-8 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
+            {testimonials.map((t, i) => (
+              <motion.div 
+                key={t._id}
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ duration: 0.5, delay: i * 0.1 }}
+                className="snap-center shrink-0 w-[80vw] sm:w-[320px] md:w-[380px] lg:w-[420px] bg-white p-6 md:p-8 rounded-[2rem] shadow-[0_8px_30px_rgba(0,0,0,0.04)] hover:-translate-y-2 hover:shadow-[0_15px_40px_rgba(0,0,0,0.08)] transition-all duration-300 flex flex-col items-center text-center relative"
+              >
+                {/* Minimalist Top Decorator */}
+                <div className="w-8 h-[1px] bg-[#DC9949] mb-6"></div>
+                
+                {/* Quote Text */}
+                <div className="mb-8 flex-grow flex items-center justify-center">
+                  <p className="font-classic text-lg md:text-xl leading-[1.7] text-[#1B0F03] italic font-light tracking-wide">
+                    "{t.quote}"
+                  </p>
+                </div>
+                
+                {/* Divider */}
+                <div className="w-12 h-[1px] bg-[#14250A]/10 mb-6"></div>
+                
+                {/* Author Info */}
+                <div className="flex flex-col items-center">
+                  {t.imageUrl && (
+                    <div className="relative w-14 h-14 rounded-full overflow-hidden mb-4 border border-[#14250A]/10 shadow-sm">
+                      <Image src={t.imageUrl} alt={t.name} fill className="object-cover" />
+                    </div>
+                  )}
+                  <h4 className="font-sans font-medium text-[#1B0F03] text-[13px] uppercase tracking-[0.15em]">{t.name}</h4>
+                  {t.role && <p className="text-[#587149] text-[11px] mt-1.5 uppercase tracking-widest font-light">{t.role}</p>}
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        ) : (
+          <p className="text-center text-lg text-[#14250A]/60 italic">
+            Novos depoimentos em breve.
+          </p>
+        )}
       </div>
     </section>
   );

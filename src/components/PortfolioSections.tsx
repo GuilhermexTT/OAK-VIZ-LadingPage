@@ -3,24 +3,45 @@
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 
-const niches = [
+import Link from 'next/link';
+
+const defaultNiches = [
   {
     category: 'ARQUITETURA',
-    image: '/IdentidadeVisual/Arquitetura.jpg',
-    link: '#arquitetura',
+    slug: 'arquitetura',
+    imageUrl: '/IdentidadeVisual/Arquitetura.jpg',
     position: 'center',
     scaleClass: 'scale-100 group-hover:scale-105'
   },
   {
     category: 'CORPORATIVO',
-    image: '/IdentidadeVisual/Página de corporativo .jpg',
-    link: '#corporativo',
+    slug: 'corporativo',
+    imageUrl: '/IdentidadeVisual/Página de corporativo .jpg',
     position: 'center',
     scaleClass: 'scale-110 group-hover:scale-[1.15]'
   }
 ];
 
-export default function PortfolioSections() {
+type PortfolioItem = {
+  _id?: string;
+  category: string;
+  slug?: string;
+  imageUrl: string;
+  position?: string;
+  scaleClass?: string;
+};
+
+interface Props {
+  portfolioItems?: PortfolioItem[];
+}
+
+export default function PortfolioSections({ portfolioItems = [] }: Props) {
+  const displayItems = portfolioItems.length > 0 ? portfolioItems.map(item => ({
+    ...item,
+    position: 'center',
+    scaleClass: 'scale-100 group-hover:scale-105'
+  })) : defaultNiches;
+
   return (
     <section className="bg-branco-creme-1 py-24 px-8 overflow-hidden">
       <div className="container mx-auto max-w-6xl">
@@ -40,34 +61,48 @@ export default function PortfolioSections() {
 
         {/* Grid Section */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 lg:gap-16 max-w-4xl mx-auto">
-          {niches.map((niche, index) => (
-            <motion.div 
-              key={niche.category}
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.3 }}
-              transition={{ duration: 0.8, delay: index * 0.2 }}
-              className="group flex flex-col cursor-pointer bg-white rounded-[24px] overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500"
-            >
-              {/* Image Container */}
-              <div className="relative w-full aspect-[4/5] overflow-hidden">
-                <Image 
-                  src={niche.image}
-                  alt={niche.category}
-                  fill
-                  className={`object-cover transition-transform duration-1000 ${niche.scaleClass}`}
-                  style={{ objectPosition: niche.position }}
-                />
-              </div>
+          {displayItems.map((niche, index) => {
+            const cardContent = (
+              <div className="group flex flex-col cursor-pointer bg-white rounded-[24px] overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 h-full w-full">
+                {/* Image Container */}
+                <div className="relative w-full aspect-[4/5] overflow-hidden">
+                  <Image 
+                    src={niche.imageUrl}
+                    alt={niche.category}
+                    fill
+                    className={`object-cover transition-transform duration-1000 ${niche.scaleClass}`}
+                    style={{ objectPosition: niche.position }}
+                  />
+                </div>
 
-              {/* Text Area */}
-              <div className="p-8 md:p-10 flex justify-center items-center">
-                <span className="text-verde-claro-1 font-serif text-xl md:text-2xl tracking-widest uppercase">
-                  {niche.category}
-                </span>
+                {/* Text Area */}
+                <div className="p-8 md:p-10 flex justify-center items-center flex-grow bg-white">
+                  <span className="text-verde-claro-1 font-serif text-xl md:text-2xl tracking-widest uppercase">
+                    {niche.category}
+                  </span>
+                </div>
               </div>
-            </motion.div>
-          ))}
+            );
+
+            return (
+              <motion.div 
+                key={niche._id || niche.category}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ duration: 0.8, delay: index * 0.2 }}
+                className="h-full"
+              >
+                {niche.slug ? (
+                  <Link href={`/portfolio/${niche.slug}`} className="block h-full w-full">
+                    {cardContent}
+                  </Link>
+                ) : (
+                  cardContent
+                )}
+              </motion.div>
+            );
+          })}
         </div>
       </div>
     </section>

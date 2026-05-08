@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Montserrat, Playfair_Display } from "next/font/google";
+import { Montserrat, Playfair_Display, Cormorant_Garamond } from "next/font/google";
 import "./globals.css";
 
 const montserrat = Montserrat({
@@ -10,6 +10,13 @@ const montserrat = Montserrat({
 const playfair = Playfair_Display({
   variable: "--font-playfair",
   subsets: ["latin"],
+});
+
+const cormorant = Cormorant_Garamond({
+  variable: "--font-cormorant",
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
+  style: ["normal", "italic"],
 });
 
 export const metadata: Metadata = {
@@ -23,9 +30,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt-BR" className="scroll-smooth">
+    <html lang="pt-BR" className="scroll-smooth" suppressHydrationWarning>
       <body
-        className={`${montserrat.variable} ${playfair.variable} antialiased bg-[#F8F6E5] text-[#1B0F03]`}
+        className={`${montserrat.variable} ${playfair.variable} ${cormorant.variable} antialiased bg-[#F8F6E5] text-[#1B0F03]`}
       >
         {children}
       </body>
