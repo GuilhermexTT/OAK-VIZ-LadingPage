@@ -34,7 +34,7 @@ export default function ContactSection() {
   };
 
   return (
-    <section id="contato" className="bg-[#F8F6E5] py-24 md:py-32 px-6">
+    <section id="contato" className="bg-[#F8F6E5] py-24 md:py-32 px-6 border-t border-[#14250A]/5">
       <div className="container mx-auto max-w-4xl">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -120,7 +120,7 @@ export default function ContactSection() {
             </div>
 
             {/* Submit Button */}
-            <div className="flex flex-col items-center gap-6 pt-8">
+            <div className="flex flex-col items-center gap-6 pt-8 pb-12">
               <button
                 type="submit"
                 disabled={isSubmitting}
@@ -135,34 +135,6 @@ export default function ContactSection() {
             </div>
           </form>
         </motion.div>
-
-        {/* Minimalist Footer inside Contact */}
-        <div className="mt-32 pt-16 border-t border-[#412912]/5 flex flex-col items-center">
-          <div className="relative w-32 h-12 mb-12 opacity-40 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-700">
-            <Image 
-              src="/identidade-visual/logo-navbar.png" 
-              alt="Oak Viz Logo" 
-              fill 
-              className="object-contain"
-            />
-          </div>
-          
-          <div className="flex gap-8 mb-12">
-            <a href="#" className="text-[#1B0F03]/40 hover:text-[#14250A] transition-colors">
-              <Instagram size={20} strokeWidth={1.5} />
-            </a>
-            <a href="#" className="text-[#1B0F03]/40 hover:text-[#14250A] transition-colors">
-              <Linkedin size={20} strokeWidth={1.5} />
-            </a>
-            <a href="mailto:contato@oakviz.com.br" className="text-[#1B0F03]/40 hover:text-[#14250A] transition-colors">
-              <Mail size={20} strokeWidth={1.5} />
-            </a>
-          </div>
-
-          <p className="text-[#1B0F03]/30 text-[10px] tracking-[0.3em] uppercase">
-            Oak Viz &copy; {new Date().getFullYear()} — Estética e Estratégia
-          </p>
-        </div>
       </div>
     </section>
   );
