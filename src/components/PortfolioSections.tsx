@@ -9,14 +9,14 @@ const defaultNiches = [
   {
     category: 'ARQUITETURA',
     slug: 'arquitetura',
-    imageUrl: '/IdentidadeVisual/Arquitetura.jpg',
+    imageUrl: '/identidade-visual/Arquitetura.jpg',
     position: 'center',
     scaleClass: 'scale-100 group-hover:scale-105'
   },
   {
     category: 'CORPORATIVO',
     slug: 'corporativo',
-    imageUrl: '/IdentidadeVisual/Página de corporativo .jpg',
+    imageUrl: '/identidade-visual/corporativo.jpg',
     position: 'center',
     scaleClass: 'scale-110 group-hover:scale-[1.15]'
   }

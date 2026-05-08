@@ -18,7 +18,7 @@ export default function AboutSection() {
             className="relative w-full aspect-[4/5] lg:aspect-[3/4] bg-[#DC9949] rounded-[24px] overflow-hidden shadow-2xl p-6 md:p-12"
           >
             <Image 
-              src="/IdentidadeVisual/Sobre nos.jpg"
+              src="/identidade-visual/sobre-nos.jpg"
               alt="Sobre a Oak Viz"
               fill
               className="object-contain"

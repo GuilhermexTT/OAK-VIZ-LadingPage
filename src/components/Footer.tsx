@@ -10,7 +10,7 @@ export default function Footer() {
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <Image 
-          src="/IdentidadeVisual/Rodape.jpg" 
+          src="/identidade-visual/Rodape.jpg" 
           alt="Background do Rodapé Oak Viz" 
           fill
           className="object-cover"

@@ -9,7 +9,7 @@ export default function Hero() {
       {/* Background Image */}
       <div 
         className="absolute inset-0 bg-cover bg-center transition-transform duration-1000"
-        style={{ backgroundImage: "url('/IdentidadeVisual/Capa-fundo-neutro.png')" }}
+        style={{ backgroundImage: "url('/identidade-visual/Capa-fundo-neutro.png')" }}
       />
       
       {/* Overlay */}
@@ -21,7 +21,7 @@ export default function Hero() {
         {/* Logo */}
         <div className="w-[80%] max-w-[500px] md:max-w-[700px] lg:max-w-[850px] opacity-90 animate-fade-in-up mb-6 md:mb-10 mt-8 md:mt-0">
           <Image 
-            src="/IdentidadeVisual/LOGO-Sem-fundo.png" 
+            src="/identidade-visual/logo-sem-fundo.png" 
             alt="Oak Viz Logo" 
             width={1500} 
             height={1500} 

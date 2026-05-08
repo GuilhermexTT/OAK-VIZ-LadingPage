@@ -8,7 +8,7 @@ export default function Navbar() {
       <nav className="container mx-auto px-4 md:px-8 flex justify-between items-center">
         <div className="relative w-36 h-12 md:w-48 md:h-16">
           <Image 
-            src="/IdentidadeVisual/logo_aplicação_1-removebg-preview.png"
+            src="/identidade-visual/logo-navbar.png"
             alt="OAK VIZ Logo"
             fill
             className="object-contain brightness-100"
