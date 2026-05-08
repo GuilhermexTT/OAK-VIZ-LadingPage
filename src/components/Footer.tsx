@@ -59,6 +59,31 @@ export default function Footer() {
 
         </div>
 
+        {/* Back to Top Button */}
+        <div className="flex justify-center mt-12 mb-6">
+          <button 
+            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+            className="group flex flex-col items-center gap-3 cursor-pointer"
+          >
+            <div className="w-12 h-12 rounded-full border border-[#F8F6E5]/30 flex items-center justify-center transition-all duration-500 group-hover:border-[#DC9949] group-hover:bg-[#DC9949]/10">
+              <svg 
+                width="20" 
+                height="20" 
+                viewBox="0 0 24 24" 
+                fill="none" 
+                stroke="currentColor" 
+                strokeWidth="1.5" 
+                strokeLinecap="round" 
+                strokeLinejoin="round" 
+                className="transform transition-transform duration-500 group-hover:-translate-y-1"
+              >
+                <path d="M18 15l-6-6-6 6"/>
+              </svg>
+            </div>
+            <span className="text-[10px] uppercase tracking-[0.3em] text-[#F8F6E5]/60 font-bold group-hover:text-[#F8F6E5] transition-colors">Voltar ao topo</span>
+          </button>
+        </div>
+
         {/* Bottom Bar */}
         <div className="border-t border-[#F8F6E5]/20 pt-6 mt-6 flex flex-col md:flex-row justify-between items-center text-sm font-light text-[#F8F6E5]/60">
           <p>© {new Date().getFullYear()} Oak Viz. Todos os direitos reservados.</p>
