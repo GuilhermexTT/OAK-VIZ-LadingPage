@@ -1,61 +1,72 @@
 'use client';
 
 import Image from 'next/image';
-import { ArrowRight } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 const niches = [
   {
-    title: 'Arquitetura',
+    category: 'ARQUITETURA',
     image: '/IdentidadeVisual/Arquitetura.jpg',
-    description: 'Capturando a alma dos projetos arquitetônicos com olhar artístico e técnico.',
     link: '#arquitetura',
-    position: 'center'
+    position: 'center',
+    scaleClass: 'scale-100 group-hover:scale-105'
   },
   {
-    title: 'Corporativo',
+    category: 'CORPORATIVO',
     image: '/IdentidadeVisual/Página de corporativo .jpg',
-    description: 'Valorizando ambientes corporativos e a identidade visual de grandes empresas.',
     link: '#corporativo',
-    position: 'top'
+    position: 'center',
+    scaleClass: 'scale-110 group-hover:scale-[1.15]'
   }
 ];
 
 export default function PortfolioSections() {
   return (
-    <section className="bg-branco-creme-1 py-24 px-8">
-      <div className="container mx-auto">
-        <div className="flex flex-col md:flex-row gap-8 min-h-[600px]">
-          {niches.map((niche) => (
-            <div 
-              key={niche.title}
-              className="group relative flex-1 overflow-hidden rounded-2xl cursor-pointer shadow-2xl hover:shadow-marrom-escuro-1/20 transition-all duration-500"
-            >
-              {/* Background Image */}
-              <Image 
-                src={niche.image}
-                alt={niche.title}
-                fill
-                className="object-cover transition-transform duration-1000 group-hover:scale-110"
-                style={{ objectPosition: niche.position }}
-              />
-              
-              {/* Dark Overlay/Gradient for readability */}
-              <div className="absolute inset-0 bg-linear-to-t from-marrom-escuro-1/90 via-marrom-escuro-1/20 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-500" />
+    <section className="bg-branco-creme-1 py-24 px-8 overflow-hidden">
+      <div className="container mx-auto max-w-6xl">
+        {/* Title Section */}
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.8 }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-16"
+        >
+          <h2 className="font-serif text-5xl md:text-6xl text-marrom-escuro-1 font-medium tracking-tight">
+            Trabalhos Selecionados
+          </h2>
+          <div className="w-16 h-[2px] bg-verde-claro-1 mx-auto mt-8"></div>
+        </motion.div>
 
-              {/* Content */}
-              <div className="absolute inset-0 p-12 flex flex-col justify-end transform transition-transform duration-500 group-hover:-translate-y-4">
-                <h3 className="font-serif text-4xl md:text-5xl text-branco-creme-1 mb-4 tracking-tight">
-                  {niche.title}
-                </h3>
-                <p className="text-branco-creme-1/70 text-lg font-medium max-w-sm mb-8 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
-                  {niche.description}
-                </p>
-                <div className="flex items-center gap-2 text-marrom-claro-2 font-bold uppercase tracking-widest text-sm">
-                  Explorar Projetos
-                  <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-2" />
-                </div>
+        {/* Grid Section */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 lg:gap-16 max-w-4xl mx-auto">
+          {niches.map((niche, index) => (
+            <motion.div 
+              key={niche.category}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.8, delay: index * 0.2 }}
+              className="group flex flex-col cursor-pointer bg-white rounded-[24px] overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500"
+            >
+              {/* Image Container */}
+              <div className="relative w-full aspect-[4/5] overflow-hidden">
+                <Image 
+                  src={niche.image}
+                  alt={niche.category}
+                  fill
+                  className={`object-cover transition-transform duration-1000 ${niche.scaleClass}`}
+                  style={{ objectPosition: niche.position }}
+                />
               </div>
-            </div>
+
+              {/* Text Area */}
+              <div className="p-8 md:p-10 flex justify-center items-center">
+                <span className="text-verde-claro-1 font-serif text-xl md:text-2xl tracking-widest uppercase">
+                  {niche.category}
+                </span>
+              </div>
+            </motion.div>
           ))}
         </div>
       </div>
