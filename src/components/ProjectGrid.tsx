@@ -27,7 +27,7 @@ export default function ProjectGrid({ projects }: ProjectGridProps) {
           transition={{ duration: 0.8, delay: (index % 2) * 0.2 }}
         >
           <Link href={`/projeto/${project.slug}`} className="group block h-full w-full">
-            <div className="flex flex-col cursor-pointer bg-white rounded-[24px] overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 h-full">
+            <div className="flex flex-col cursor-pointer bg-white rounded-[24px] overflow-hidden shadow-[0_4px_20px_-4px_rgba(0,0,0,0.1)] hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.15)] transition-all duration-500 h-full">
               {/* Image Container */}
               <div className="relative w-full aspect-[4/5] overflow-hidden">
                 <Image 
