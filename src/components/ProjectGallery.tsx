@@ -32,6 +32,11 @@ export default function ProjectGallery({ images, projectTitle }: ProjectGalleryP
 
   return (
     <div className="mb-24 px-4 md:px-0">
+      {/* Hint Text */}
+      <div className="flex items-center justify-center gap-2 mb-8 text-marrom-escuro-1/40 text-xs tracking-widest uppercase animate-pulse">
+        <span>Clique na imagem para ampliar</span>
+      </div>
+
       {/* Grid de Fotos */}
       <div className="columns-1 md:columns-2 gap-8 md:gap-16 space-y-8 md:space-y-16">
         {images.map((imgUrl, index) => (
@@ -51,7 +56,12 @@ export default function ProjectGallery({ images, projectTitle }: ProjectGalleryP
               height={1600}
               className="w-full h-auto object-cover transition-transform duration-[1500ms] ease-out group-hover:scale-[1.03]"
             />
-            <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-700"></div>
+            {/* Hover Overlay with Icon */}
+            <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-500 flex items-center justify-center">
+              <div className="opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-500 bg-white/10 backdrop-blur-md p-4 rounded-full border border-white/20">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+              </div>
+            </div>
           </motion.div>
         ))}
       </div>
