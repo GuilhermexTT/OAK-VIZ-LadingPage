@@ -43,7 +43,7 @@ export default function PortfolioSections({ portfolioItems = [] }: Props) {
   })) : defaultNiches;
 
   return (
-    <section className="bg-branco-creme-1 py-24 px-8 overflow-hidden">
+    <section id="portfolio" className="bg-branco-creme-1 py-24 px-8 overflow-hidden">
       <div className="container mx-auto max-w-6xl">
         {/* Title Section */}
         <motion.div 
