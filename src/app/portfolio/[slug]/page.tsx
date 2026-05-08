@@ -1,12 +1,11 @@
-'use client';
-
 import { client } from '@/sanity/lib/client';
-import Image from 'next/image';
 import Link from 'next/link';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
-import { motion } from 'framer-motion';
-import { useEffect, useState } from 'react';
+import ProjectGrid from '@/components/ProjectGrid';
+
+// Desativar cache para dados frescos
+export const revalidate = 60;
 
 type Project = {
   _id: string;
@@ -15,27 +14,22 @@ type Project = {
   imageUrl: string;
 };
 
-export default function PortfolioCategoryPage({ params }: { params: any }) {
-  const [projects, setProjects] = useState<Project[]>([]);
-  const [slug, setSlug] = useState<string>('');
+export default async function PortfolioCategoryPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
 
-  useEffect(() => {
-    params.then((p: any) => {
-      setSlug(p.slug);
-      client.fetch<Project[]>(`
-        *[_type == "project" && category == $slug] | order(order asc) {
-          _id,
-          title,
-          "slug": slug.current,
-          "imageUrl": coverImage.asset->url
-        }
-      `, { slug: p.slug }).then(setProjects);
-    });
-  }, [params]);
+  // Busca os projetos dessa categoria (case-insensitive para garantir que apareçam)
+  const projects = await client.fetch<Project[]>(`
+    *[_type == "project" && (category == $slug || lower(category) == $slug)] | order(order asc) {
+      _id,
+      title,
+      "slug": slug.current,
+      "imageUrl": coverImage.asset->url
+    }
+  `, { slug });
 
   const categoryName = slug === 'arquitetura' ? 'Arquitetura' : slug === 'corporativo' ? 'Corporativo' : slug;
 
-  if (slug && slug !== 'arquitetura' && slug !== 'corporativo') {
+  if (slug !== 'arquitetura' && slug !== 'corporativo') {
     return (
       <main className="min-h-screen bg-branco-creme-1 text-marrom-escuro-1 flex flex-col items-center justify-center">
         <h1 className="font-serif text-3xl">Categoria não encontrada</h1>
@@ -67,44 +61,14 @@ export default function PortfolioCategoryPage({ params }: { params: any }) {
           </div>
 
           {projects.length > 0 ? (
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 lg:gap-16 max-w-4xl mx-auto">
-              {projects.map((project, index) => (
-                <motion.div
-                  key={project._id}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, amount: 0.2 }}
-                  transition={{ duration: 0.8, delay: (index % 2) * 0.2 }}
-                >
-                  <Link href={`/projeto/${project.slug}`} className="group block h-full w-full">
-                    <div className="flex flex-col cursor-pointer bg-white rounded-[24px] overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 h-full">
-                      {/* Image Container */}
-                      <div className="relative w-full aspect-[4/5] overflow-hidden">
-                        <Image 
-                          src={project.imageUrl || '/placeholder.jpg'} 
-                          alt={project.title} 
-                          fill 
-                          className="object-cover transition-transform duration-1000 group-hover:scale-105"
-                        />
-                      </div>
-                      {/* Text Area */}
-                      <div className="p-8 md:p-10 flex justify-center items-center flex-grow bg-white">
-                        <h3 className="text-verde-claro-1 font-serif text-xl md:text-2xl tracking-widest uppercase text-center">
-                          {project.title}
-                        </h3>
-                      </div>
-                    </div>
-                  </Link>
-                </motion.div>
-              ))}
-            </div>
-          ) : slug ? (
+            <ProjectGrid projects={projects} />
+          ) : (
             <div className="text-center py-20">
               <p className="text-xl text-marrom-escuro-1/60 italic font-light">
                 Nenhum projeto encontrado nesta categoria ainda.
               </p>
             </div>
-          ) : null}
+          )}
         </div>
       </div>
 
