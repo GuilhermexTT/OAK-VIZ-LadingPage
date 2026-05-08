@@ -3,6 +3,7 @@ import Hero from "@/components/Hero";
 import PortfolioSections from "@/components/PortfolioSections";
 import AboutSection from "@/components/AboutSection";
 import TestimonialsSection from "@/components/TestimonialsSection";
+import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 import BackToTop from "@/components/BackToTop";
 import { client } from "@/sanity/lib/client";
@@ -30,6 +31,7 @@ export default async function Home() {
       <PortfolioSections />
       <AboutSection />
       <TestimonialsSection testimonials={testimonials} />
+      <ContactSection />
       <BackToTop />
       <Footer />
     </main>
