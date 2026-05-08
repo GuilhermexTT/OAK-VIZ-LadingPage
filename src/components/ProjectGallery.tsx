@@ -46,7 +46,7 @@ export default function ProjectGallery({ images, projectTitle }: ProjectGalleryP
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: index * 0.1 }}
-            className="relative w-full overflow-hidden break-inside-avoid group cursor-zoom-in"
+            className="relative w-full rounded-[24px] overflow-hidden break-inside-avoid group cursor-zoom-in shadow-[0_4px_20px_-4px_rgba(0,0,0,0.1)] hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.15)] transition-all duration-500"
             onClick={() => openLightbox(index)}
           >
             <Image
