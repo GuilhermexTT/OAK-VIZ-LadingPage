@@ -4,6 +4,7 @@ import PortfolioSections from "@/components/PortfolioSections";
 import AboutSection from "@/components/AboutSection";
 import TestimonialsSection from "@/components/TestimonialsSection";
 import Footer from "@/components/Footer";
+import BackToTop from "@/components/BackToTop";
 import { client } from "@/sanity/lib/client";
 
 // Turn off caching for this page so data is always fresh, 
@@ -29,6 +30,7 @@ export default async function Home() {
       <PortfolioSections />
       <AboutSection />
       <TestimonialsSection testimonials={testimonials} />
+      <BackToTop />
       <Footer />
     </main>
   );

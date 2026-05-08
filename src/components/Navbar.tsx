@@ -24,7 +24,7 @@ export default function Navbar() {
             Portfólio
           </Link>
           <Link href="/#sobre" className="text-branco-creme-1 text-sm font-medium tracking-[0.2em] uppercase hover:text-verde-claro-1 transition-colors">
-            Sobre mim
+            Sobre a OakViz
           </Link>
           <Link href="/#depoimentos" className="text-branco-creme-1 text-sm font-medium tracking-[0.2em] uppercase hover:text-verde-claro-1 transition-colors">
             Depoimentos

@@ -42,7 +42,7 @@ export default function Footer() {
             <h3 className="font-bold text-lg mb-4 text-white">Navegação</h3>
             <ul className="space-y-3 font-light text-[#F8F6E5]/80">
               <li><Link href="#portfolio" className="hover:text-[#DC9949] transition-colors">Portfólio</Link></li>
-              <li><Link href="#sobre" className="hover:text-[#DC9949] transition-colors">Sobre Nós</Link></li>
+              <li><Link href="#sobre" className="hover:text-[#DC9949] transition-colors">Sobre a OakViz</Link></li>
               <li><Link href="#depoimentos" className="hover:text-[#DC9949] transition-colors">Depoimentos</Link></li>
             </ul>
           </div>
@@ -57,31 +57,6 @@ export default function Footer() {
             </ul>
           </div>
 
-        </div>
-
-        {/* Back to Top Button */}
-        <div className="flex justify-center mt-12 mb-6">
-          <button 
-            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-            className="group flex flex-col items-center gap-3 cursor-pointer"
-          >
-            <div className="w-12 h-12 rounded-full border border-[#F8F6E5]/30 flex items-center justify-center transition-all duration-500 group-hover:border-[#DC9949] group-hover:bg-[#DC9949]/10">
-              <svg 
-                width="20" 
-                height="20" 
-                viewBox="0 0 24 24" 
-                fill="none" 
-                stroke="currentColor" 
-                strokeWidth="1.5" 
-                strokeLinecap="round" 
-                strokeLinejoin="round" 
-                className="transform transition-transform duration-500 group-hover:-translate-y-1"
-              >
-                <path d="M18 15l-6-6-6 6"/>
-              </svg>
-            </div>
-            <span className="text-[10px] uppercase tracking-[0.3em] text-[#F8F6E5]/60 font-bold group-hover:text-[#F8F6E5] transition-colors">Voltar ao topo</span>
-          </button>
         </div>
 
         {/* Bottom Bar */}
