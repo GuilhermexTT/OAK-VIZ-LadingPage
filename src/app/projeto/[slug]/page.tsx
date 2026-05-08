@@ -3,6 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import ProjectGallery from '@/components/ProjectGallery';
 
 export const revalidate = 60;
 
@@ -66,24 +67,9 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
             </h1>
           </header>
 
-          {/* Galeria de Fotos */}
+          {/* Galeria de Fotos com Lightbox */}
           {project.gallery && project.gallery.length > 0 && (
-            <div className="mb-24 px-4 md:px-0">
-              <div className="columns-1 md:columns-2 gap-8 md:gap-16 space-y-8 md:space-y-16">
-                {project.gallery.map((imgUrl, index) => (
-                  <div key={index} className="relative w-full overflow-hidden break-inside-avoid group">
-                    <Image
-                      src={imgUrl}
-                      alt={`Foto ${index + 1} de ${project.title}`}
-                      width={1200}
-                      height={1600}
-                      className="w-full h-auto object-cover transition-transform duration-[1500ms] ease-out group-hover:scale-[1.03]"
-                    />
-                    <div className="absolute inset-0 bg-[#14250A]/0 group-hover:bg-[#14250A]/20 transition-colors duration-700 pointer-events-none"></div>
-                  </div>
-                ))}
-              </div>
-            </div>
+            <ProjectGallery images={project.gallery} projectTitle={project.title} />
           )}
 
           {/* Vídeos do YouTube */}
