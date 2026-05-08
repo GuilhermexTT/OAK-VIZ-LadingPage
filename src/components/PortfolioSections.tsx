@@ -86,7 +86,7 @@ export default function PortfolioSections({ portfolioItems = [] }: Props) {
 
             return (
               <motion.div 
-                key={niche._id || niche.category}
+                key={niche.category}
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.3 }}

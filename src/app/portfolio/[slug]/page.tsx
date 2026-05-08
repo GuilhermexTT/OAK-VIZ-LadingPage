@@ -49,6 +49,12 @@ export default async function PortfolioCategoryPage({ params }: { params: Promis
       <div className="flex-grow pt-32 pb-24 px-8">
         <div className="container mx-auto max-w-6xl">
           <div className="text-center mb-16">
+            <Link 
+              href="/"
+              className="font-classic italic text-[#1B0F03]/60 hover:text-[#14250A] transition-colors text-lg md:text-xl tracking-wide mb-8 inline-block"
+            >
+              ← Voltar para o Início
+            </Link>
             <h1 className="font-serif text-4xl md:text-5xl text-marrom-escuro-1 tracking-tight uppercase">
               {categoryName}
             </h1>
