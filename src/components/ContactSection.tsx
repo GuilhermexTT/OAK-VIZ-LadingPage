@@ -8,7 +8,7 @@ export default function ContactSection() {
   const whatsappUrl = `https://wa.me/${whatsappNumber}?text=Olá,%20vi%20seu%20portifólio%20e%20gostaria%20de%20conversar%20sobre%20um%20projeto!`;
 
   return (
-    <section id="contato" className="bg-[#F8F6E5] pt-12 pb-24 md:py-32 px-6">
+    <section id="contato" className="bg-branco-creme-1 pt-12 pb-24 md:py-32 px-6">
       <div className="container mx-auto max-w-4xl">
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}

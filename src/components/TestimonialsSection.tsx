@@ -18,7 +18,7 @@ interface Props {
 
 export default function TestimonialsSection({ testimonials = [] }: Props) {
   return (
-    <section id="depoimentos" className="bg-[#F8F6E5] text-[#14250A] pt-24 pb-12 md:py-32 overflow-hidden">
+    <section id="depoimentos" className="bg-branco-creme-1 text-verde-escuro-1 pt-24 pb-12 md:py-32 overflow-hidden">
       <div className="container mx-auto max-w-6xl px-4 md:px-8">
         <motion.h2 
           initial={{ opacity: 0, y: 30 }}
@@ -60,7 +60,7 @@ export default function TestimonialsSection({ testimonials = [] }: Props) {
                 className="snap-center shrink-0 w-[80vw] sm:w-[320px] md:w-[380px] lg:w-[420px] bg-white p-6 md:p-8 rounded-[2rem] shadow-[0_8px_30px_rgba(0,0,0,0.04)] hover:-translate-y-4 hover:shadow-[0_20px_40px_rgba(0,0,0,0.08)] transition-all duration-500 flex flex-col items-center text-center relative"
               >
                 {/* Minimalist Top Decorator */}
-                <div className="w-8 h-[1px] bg-[#DC9949] mb-6"></div>
+                <div className="w-8 h-[1px] bg-marrom-claro-2 mb-6"></div>
                 
                 {/* Quote Text */}
                 <div className="mb-8 flex-grow flex items-center justify-center">

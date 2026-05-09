@@ -19,6 +19,7 @@ html {
 }
 
 :root {
+  color-scheme: only light;
   --marrom-escuro-1: #1B0F03;
   --marrom-claro-1: #412912;
   --marrom-claro-2: #D19C57;

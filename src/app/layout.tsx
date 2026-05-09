@@ -22,6 +22,9 @@ const cormorant = Cormorant_Garamond({
 export const metadata: Metadata = {
   title: "OAK VIZ | Fotografia Arquitetônica",
   description: "Capturando a essência da excelência arquitetônica e ambientes corporativos com precisão cinematográfica",
+  other: {
+    "color-scheme": "light"
+  }
 };
 
 export default function RootLayout({
