@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import { Mail, MessageCircle, ExternalLink } from 'lucide-react';
 
 export default function ContactSection() {
-  const whatsappNumber = "5511999999999"; // Substitua pelo seu número real
+  const whatsappNumber = "5511990033476"; 
   const whatsappUrl = `https://wa.me/${whatsappNumber}?text=Olá,%20vi%20seu%20portifólio%20e%20gostaria%20de%20conversar%20sobre%20um%20projeto!`;
 
   return (
@@ -31,7 +31,7 @@ export default function ContactSection() {
           {/* Contact Icons */}
           <div className="flex gap-6 mb-12">
             <a 
-              href="mailto:contato@oakviz.com.br" 
+              href="mailto:oakvizbr@gmail.com" 
               className="p-4 rounded-full bg-[#14250A]/5 text-[#14250A] hover:bg-[#14250A] hover:text-[#F8F6E5] transition-all duration-300"
               title="E-mail"
             >
@@ -46,7 +46,7 @@ export default function ContactSection() {
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
             </a>
             <a 
-              href="#" 
+              href="https://www.instagram.com/oakviz/" 
               target="_blank"
               className="p-4 rounded-full bg-[#14250A]/5 text-[#14250A] hover:bg-[#14250A] hover:text-[#F8F6E5] transition-all duration-300"
               title="Instagram"
