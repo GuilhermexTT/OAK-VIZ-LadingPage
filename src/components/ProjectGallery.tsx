@@ -88,50 +88,34 @@ export default function ProjectGallery({ images, projectTitle }: ProjectGalleryP
             <button 
               className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 text-white/50 hover:text-white transition-colors z-[110]"
               onClick={showPrev}
-              onClick={(e) => { e.stopPropagation(); showPrev(); }}
             >
               <ChevronLeft className="w-12 h-12" />
             </button>
             <button 
               className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 text-white/50 hover:text-white transition-colors z-[110]"
-              onClick={(e) => { e.stopPropagation(); showNext(); }}
+              onClick={showNext}
             >
               <ChevronRight className="w-12 h-12" />
             </button>
 
             {/* Image Container */}
-            <div className="relative w-full h-full flex items-center justify-center p-4">
-              <AnimatePresence mode="wait">
-                <motion.div
-                  key={selectedIndex}
-                  initial={{ opacity: 0, x: 100 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  exit={{ opacity: 0, x: -100 }}
-                  transition={{ type: "spring", damping: 25, stiffness: 200 }}
-                  drag="x"
-                  dragConstraints={{ left: 0, right: 0 }}
-                  dragElastic={0.2}
-                  onDragEnd={(_, info) => {
-                    if (info.offset.x < -100) {
-                      showNext();
-                    } else if (info.offset.x > 100) {
-                      showPrev();
-                    }
-                  }}
-                  className="relative w-full h-full max-w-5xl max-h-[80vh] cursor-grab active:cursor-grabbing"
-                  onClick={(e) => e.stopPropagation()}
-                >
-                  <Image
-                    src={images[selectedIndex]}
-                    alt={`Ampliada ${selectedIndex + 1}`}
-                    fill
-                    className="object-contain select-none"
-                    quality={100}
-                    priority
-                  />
-                </motion.div>
-              </AnimatePresence>
-            </div>
+            <motion.div 
+              key={selectedIndex}
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ type: 'spring', damping: 25, stiffness: 300 }}
+              className="relative w-full h-full max-w-6xl max-h-[85vh] flex items-center justify-center"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <Image
+                src={images[selectedIndex]}
+                alt={`Ampliada ${selectedIndex + 1}`}
+                fill
+                className="object-contain"
+                quality={100}
+                priority
+              />
+            </motion.div>
 
             {/* Counter */}
             <div className="absolute bottom-8 left-1/2 -translate-x-1/2 text-white/60 font-light tracking-widest text-sm">
