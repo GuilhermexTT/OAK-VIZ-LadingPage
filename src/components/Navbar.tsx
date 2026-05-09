@@ -10,7 +10,7 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   const menuLinks = [
-    { name: 'Portfólio', href: '/#portfolio' },
+    { name: 'Portifólio', href: '/#portfolio' },
     { name: 'Sobre a Oak Viz', href: '/#sobre' },
     { name: 'Depoimentos', href: '/#depoimentos' },
   ];

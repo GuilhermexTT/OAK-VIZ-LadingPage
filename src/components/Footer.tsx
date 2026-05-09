@@ -41,7 +41,7 @@ export default function Footer() {
           <div className="flex flex-col">
             <h3 className="font-bold text-lg mb-4 text-white">Navegação</h3>
             <ul className="space-y-3 font-light text-[#F8F6E5]/80">
-              <li><Link href="#portfolio" className="hover:text-[#DC9949] transition-colors">Portfólio</Link></li>
+              <li><Link href="#portfolio" className="hover:text-[#DC9949] transition-colors">Portifólio</Link></li>
               <li><Link href="#sobre" className="hover:text-[#DC9949] transition-colors">Sobre a Oak Viz</Link></li>
               <li><Link href="#depoimentos" className="hover:text-[#DC9949] transition-colors">Depoimentos</Link></li>
             </ul>
