@@ -73,7 +73,7 @@ export default function Navbar() {
               ))}
               
               <div className="absolute bottom-12 text-branco-creme-1/40 text-xs tracking-widest uppercase">
-                Oak Viz &copy; 2024
+                Oak Viz
               </div>
             </motion.div>
           )}
