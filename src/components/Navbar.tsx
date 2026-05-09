@@ -13,6 +13,7 @@ export default function Navbar() {
     { name: 'Portifólio', href: '/#portfolio' },
     { name: 'Sobre a Oak Viz', href: '/#sobre' },
     { name: 'Depoimentos', href: '/#depoimentos' },
+    { name: 'Contato', href: '/#contato' },
   ];
 
   return (
