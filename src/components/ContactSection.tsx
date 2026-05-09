@@ -11,19 +11,6 @@ export default function ContactSection() {
     <section id="contato" className="bg-[#F8F6E5] py-24 md:py-32 px-6">
       <div className="container mx-auto max-w-4xl">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-16"
-        >
-          <h2 className="font-classic text-5xl md:text-6xl text-[#1B0F03] mb-8 tracking-tight leading-tight font-light italic">
-            Vamos Construir Algo Incrível
-          </h2>
-          <div className="w-12 h-[1px] bg-[#14250A]/20 mx-auto mt-10"></div>
-        </motion.div>
-
-        <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
@@ -32,6 +19,11 @@ export default function ContactSection() {
         >
           {/* Decorative Glow (Subtle) */}
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-64 h-64 bg-[#14250A]/5 blur-[100px] rounded-full -z-10"></div>
+
+          <h2 className="font-classic text-5xl md:text-6xl text-[#1B0F03] mb-6 tracking-tight leading-tight font-light italic">
+            Vamos Construir Algo Incrível
+          </h2>
+          <div className="w-12 h-[1px] bg-[#14250A]/20 mx-auto mb-10"></div>
           
           <p className="text-[#1B0F03]/60 font-light text-lg md:text-xl max-w-xl mb-12">
             Pronto para ver sua obra através de um novo olhar? Entre em contato e vamos registrar a essência do seu projeto juntos!
