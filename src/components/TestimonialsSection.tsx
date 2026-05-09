@@ -49,7 +49,7 @@ export default function TestimonialsSection({ testimonials = [] }: Props) {
         
       <div className="container mx-auto max-w-[100vw] px-4 md:px-8">
         {testimonials.length > 0 ? (
-          <div className="flex overflow-x-auto pb-12 snap-x snap-mandatory gap-6 md:gap-8 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
+          <div className="flex overflow-x-auto pt-10 pb-12 snap-x snap-mandatory gap-6 md:gap-8 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
             {testimonials.map((t, i) => (
               <motion.div 
                 key={t._id}
@@ -57,7 +57,7 @@ export default function TestimonialsSection({ testimonials = [] }: Props) {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true, amount: 0.3 }}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="snap-center shrink-0 w-[80vw] sm:w-[320px] md:w-[380px] lg:w-[420px] bg-white p-6 md:p-8 rounded-[2rem] shadow-[0_8px_30px_rgba(0,0,0,0.04)] hover:-translate-y-2 hover:shadow-[0_15px_40px_rgba(0,0,0,0.08)] transition-all duration-300 flex flex-col items-center text-center relative"
+                className="snap-center shrink-0 w-[80vw] sm:w-[320px] md:w-[380px] lg:w-[420px] bg-white p-6 md:p-8 rounded-[2rem] shadow-[0_8px_30px_rgba(0,0,0,0.04)] hover:-translate-y-4 hover:shadow-[0_20px_40px_rgba(0,0,0,0.08)] transition-all duration-500 flex flex-col items-center text-center relative"
               >
                 {/* Minimalist Top Decorator */}
                 <div className="w-8 h-[1px] bg-[#DC9949] mb-6"></div>
