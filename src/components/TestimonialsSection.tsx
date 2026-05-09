@@ -18,7 +18,7 @@ interface Props {
 
 export default function TestimonialsSection({ testimonials = [] }: Props) {
   return (
-    <section id="depoimentos" className="bg-[#F8F6E5] text-[#14250A] py-24 md:py-32 overflow-hidden">
+    <section id="depoimentos" className="bg-[#F8F6E5] text-[#14250A] pt-24 pb-12 md:py-32 overflow-hidden">
       <div className="container mx-auto max-w-6xl px-4 md:px-8">
         <motion.h2 
           initial={{ opacity: 0, y: 30 }}
