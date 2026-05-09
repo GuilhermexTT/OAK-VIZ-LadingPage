@@ -76,10 +76,17 @@ export default function PortfolioSections({ portfolioItems = [] }: Props) {
                 </div>
 
                 {/* Text Area */}
-                <div className="p-8 md:p-10 flex justify-center items-center flex-grow bg-white">
+                <div className="p-8 md:p-10 flex flex-col justify-center items-center flex-grow bg-white relative">
                   <span className="text-[#14250A] font-classic text-xl md:text-2xl tracking-[0.2em] font-light uppercase italic">
                     {niche.category}
                   </span>
+                  
+                  {/* Hover Indicator */}
+                  <motion.span 
+                    className="text-[#587149] text-[10px] uppercase tracking-[0.3em] font-medium mt-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                  >
+                    Explorar Galeria
+                  </motion.span>
                 </div>
               </div>
             );
