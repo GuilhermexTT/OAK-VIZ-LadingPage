@@ -25,7 +25,7 @@ export default function ContactSection() {
           </h2>
           
           <p className="text-[#1B0F03]/60 font-light text-lg md:text-xl max-w-xl mb-12">
-            Pronto para transformar suas ideias em realidade? Entre em contato e vamos criar soluções inovadoras juntos.
+            Pronto para ver sua obra através de um novo olhar? Entre em contato e vamos registrar a essência do seu projeto juntos!
           </p>
 
           {/* Contact Icons */}
