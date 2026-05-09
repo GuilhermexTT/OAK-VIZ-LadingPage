@@ -31,7 +31,7 @@ export default function Hero() {
         </div>
         
         {/* Slogan */}
-        <p className="font-serif text-2xl md:text-3xl lg:text-4xl italic font-medium text-marrom-escuro-1/90 tracking-tight animate-fade-in text-center mb-8 md:mb-10">
+        <p className="font-classic text-2xl md:text-3xl lg:text-5xl italic font-light text-marrom-escuro-1/80 tracking-[0.05em] animate-fade-in text-center mb-10 md:mb-12">
           A imagem fala antes de qualquer coisa
         </p>
 
@@ -39,7 +39,7 @@ export default function Hero() {
         <div className="animate-fade-in-up pointer-events-auto">
           <a 
             href="#portfolio" 
-            className="inline-flex items-center bg-[#D19C57] hover:bg-[#b88546] text-branco-creme-1 px-8 md:px-10 py-3 md:py-4 rounded-full text-xs md:text-sm font-bold tracking-[0.15em] uppercase transition-all duration-300 hover:-translate-y-1 shadow-2xl shadow-[#D19C57]/20"
+            className="inline-flex items-center bg-[#D19C57] hover:bg-[#b88546] text-branco-creme-1 px-10 md:px-12 py-3.5 md:py-4.5 rounded-full text-[10px] md:text-[11px] font-bold tracking-[0.3em] uppercase transition-all duration-500 hover:-translate-y-1 shadow-2xl shadow-[#D19C57]/30"
           >
             VER PORTIFÓLIO
           </a>

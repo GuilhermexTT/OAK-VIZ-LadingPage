@@ -53,10 +53,10 @@ export default function PortfolioSections({ portfolioItems = [] }: Props) {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="font-serif text-5xl md:text-6xl text-marrom-escuro-1 font-medium tracking-tight">
+          <h2 className="font-classic text-5xl md:text-6xl text-marrom-escuro-1 font-light tracking-tight">
             Trabalhos Selecionados
           </h2>
-          <div className="w-16 h-[2px] bg-verde-claro-1 mx-auto mt-8"></div>
+          <div className="w-12 h-[1px] bg-verde-claro-1 mx-auto mt-8"></div>
         </motion.div>
 
         {/* Grid Section */}
@@ -77,7 +77,7 @@ export default function PortfolioSections({ portfolioItems = [] }: Props) {
 
                 {/* Text Area */}
                 <div className="p-8 md:p-10 flex justify-center items-center flex-grow bg-white">
-                  <span className="text-verde-claro-1 font-serif text-xl md:text-2xl tracking-widest uppercase">
+                  <span className="text-[#14250A] font-classic text-xl md:text-2xl tracking-[0.2em] font-light uppercase italic">
                     {niche.category}
                   </span>
                 </div>

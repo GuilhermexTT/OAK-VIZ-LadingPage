@@ -20,7 +20,7 @@ export default function ContactSection() {
           {/* Decorative Glow (Subtle) */}
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-64 h-64 bg-[#14250A]/5 blur-[100px] rounded-full -z-10"></div>
 
-          <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl text-[#1B0F03] mb-6 tracking-tight leading-tight">
+          <h2 className="font-classic text-5xl md:text-6xl text-[#1B0F03] mb-8 tracking-tight leading-tight font-light italic">
             Vamos Construir Algo Incrível
           </h2>
           

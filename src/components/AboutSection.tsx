@@ -34,11 +34,11 @@ export default function AboutSection() {
             transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
             className="flex flex-col justify-center"
           >
-            <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl mb-8 tracking-tight">
+            <h2 className="font-classic text-5xl md:text-6xl mb-10 tracking-tight font-light italic">
               Sobre a Oak Viz
             </h2>
             
-            <div className="space-y-6 text-base md:text-lg text-[#F8F6E5]/90 leading-relaxed font-light text-justify">
+            <div className="space-y-8 text-base md:text-lg text-[#F8F6E5]/80 leading-relaxed font-light text-justify tracking-wide">
               <p>
                 A Oak Viz é uma produtora audiovisual especializada em elevar o posicionamento de marcas, profissionais e projetos arquitetônicos.
               </p>
