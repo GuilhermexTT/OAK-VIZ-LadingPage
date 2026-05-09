@@ -1,4 +1,4 @@
-import Navbar from "@/components/Navbar";
+import Navbar from "@/components/Navbar"; // Updated: 2024-05-08 21:07
 import Hero from "@/components/Hero";
 import PortfolioSections from "@/components/PortfolioSections";
 import AboutSection from "@/components/AboutSection";
