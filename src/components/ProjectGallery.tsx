@@ -16,15 +16,15 @@ export default function ProjectGallery({ images, projectTitle }: ProjectGalleryP
   const openLightbox = (index: number) => setSelectedIndex(index);
   const closeLightbox = () => setSelectedIndex(null);
 
-  const showNext = (e: React.MouseEvent) => {
-    e.stopPropagation();
+  const showNext = (e?: React.MouseEvent | React.TouchEvent | any) => {
+    if (e && e.stopPropagation) e.stopPropagation();
     if (selectedIndex !== null) {
       setSelectedIndex((selectedIndex + 1) % images.length);
     }
   };
 
-  const showPrev = (e: React.MouseEvent) => {
-    e.stopPropagation();
+  const showPrev = (e?: React.MouseEvent | React.TouchEvent | any) => {
+    if (e && e.stopPropagation) e.stopPropagation();
     if (selectedIndex !== null) {
       setSelectedIndex((selectedIndex - 1 + images.length) % images.length);
     }
@@ -33,8 +33,9 @@ export default function ProjectGallery({ images, projectTitle }: ProjectGalleryP
   return (
     <div className="mb-24 px-4 md:px-0">
       {/* Hint Text */}
-      <div className="flex items-center justify-center gap-2 mb-8 text-marrom-escuro-1/40 text-xs tracking-widest uppercase animate-pulse">
-        <span>Clique na imagem para ampliar</span>
+      <div className="flex flex-col items-center justify-center gap-2 mb-8 text-marrom-escuro-1/40 text-xs tracking-[0.2em] uppercase">
+        <span className="animate-pulse">Clique na imagem para ampliar</span>
+        <span className="text-[9px] opacity-60">No celular, deslize para navegar</span>
       </div>
 
       {/* Grid de Fotos */}
@@ -73,45 +74,54 @@ export default function ProjectGallery({ images, projectTitle }: ProjectGalleryP
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[100] bg-black/95 flex items-center justify-center p-4 md:p-8"
+            className="fixed inset-0 z-[100] bg-black/95 flex items-center justify-center p-4 md:p-8 overflow-hidden touch-none"
             onClick={closeLightbox}
           >
             {/* Close Button */}
             <button 
-              className="absolute top-6 right-6 text-white/70 hover:text-white transition-colors z-[110]"
+              className="absolute top-6 right-6 text-white/70 hover:text-white transition-colors z-[110] p-2"
               onClick={closeLightbox}
             >
-              <X className="w-10 h-10" />
+              <X className="w-8 h-8 md:w-10 md:h-10" />
             </button>
 
-            {/* Navigation Buttons */}
+            {/* Navigation Buttons (Desktop Only) */}
             <button 
-              className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 text-white/50 hover:text-white transition-colors z-[110]"
+              className="hidden md:flex absolute left-4 md:left-8 top-1/2 -translate-y-1/2 text-white/50 hover:text-white transition-colors z-[110]"
               onClick={showPrev}
             >
               <ChevronLeft className="w-12 h-12" />
             </button>
             <button 
-              className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 text-white/50 hover:text-white transition-colors z-[110]"
+              className="hidden md:flex absolute right-4 md:right-8 top-1/2 -translate-y-1/2 text-white/50 hover:text-white transition-colors z-[110]"
               onClick={showNext}
             >
               <ChevronRight className="w-12 h-12" />
             </button>
 
-            {/* Image Container */}
+            {/* Image Container with Swipe Support */}
             <motion.div 
               key={selectedIndex}
-              initial={{ scale: 0.9, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              transition={{ type: 'spring', damping: 25, stiffness: 300 }}
-              className="relative w-full h-full max-w-6xl max-h-[85vh] flex items-center justify-center"
+              initial={{ scale: 0.9, opacity: 0, x: 20 }}
+              animate={{ scale: 1, opacity: 1, x: 0 }}
+              exit={{ scale: 1.1, opacity: 0, x: -20 }}
+              transition={{ type: 'spring', damping: 25, stiffness: 200 }}
+              drag="x"
+              dragConstraints={{ left: 0, right: 0 }}
+              dragElastic={0.6}
+              onDragEnd={(_, info) => {
+                const threshold = 50;
+                if (info.offset.x < -threshold) showNext();
+                else if (info.offset.x > threshold) showPrev();
+              }}
+              className="relative w-full h-full max-w-6xl max-h-[80vh] flex items-center justify-center cursor-grab active:cursor-grabbing"
               onClick={(e) => e.stopPropagation()}
             >
               <Image
                 src={images[selectedIndex]}
                 alt={`Ampliada ${selectedIndex + 1}`}
                 fill
-                className="object-contain"
+                className="object-contain pointer-events-none select-none"
                 quality={100}
                 priority
               />
