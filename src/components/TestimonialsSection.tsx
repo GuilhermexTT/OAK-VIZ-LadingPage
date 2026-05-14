@@ -47,9 +47,9 @@ export default function TestimonialsSection({ testimonials = [] }: Props) {
         </motion.div>
       </div>
         
-      <div className="container mx-auto max-w-[100vw] px-4 md:px-8">
+      <div className="w-full overflow-hidden">
         {testimonials.length > 0 ? (
-          <div className="flex overflow-x-auto pt-10 pb-12 snap-x snap-mandatory gap-6 md:gap-8 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
+          <div className="flex overflow-x-auto pt-10 pb-12 snap-x snap-mandatory gap-6 md:gap-8 px-[10vw] md:px-8 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
             {testimonials.map((t, i) => (
               <motion.div 
                 key={t._id}
