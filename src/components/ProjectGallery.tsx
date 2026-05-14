@@ -127,9 +127,16 @@ export default function ProjectGallery({ images, projectTitle }: ProjectGalleryP
               />
             </motion.div>
 
-            {/* Counter */}
-            <div className="absolute bottom-8 left-1/2 -translate-x-1/2 text-white/60 font-light tracking-widest text-sm">
-              {selectedIndex + 1} / {images.length}
+            {/* Bottom Controls / Info */}
+            <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2">
+              <div className="text-white/60 font-light tracking-widest text-sm">
+                {selectedIndex + 1} / {images.length}
+              </div>
+              <div className="md:hidden flex items-center gap-2 text-white/40 text-[10px] uppercase tracking-widest animate-pulse">
+                <ChevronLeft className="w-3 h-3" />
+                <span>Deslize</span>
+                <ChevronRight className="w-3 h-3" />
+              </div>
             </div>
           </motion.div>
         )}

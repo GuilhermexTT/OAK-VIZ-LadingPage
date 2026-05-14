@@ -51,8 +51,8 @@ export default function Footer() {
           <div className="flex flex-col">
             <h3 className="font-bold text-lg mb-4 text-white">Contato</h3>
             <ul className="space-y-3 font-light text-[#F8F6E5]/80">
-              <li>contato@oakviz.com.br</li>
-              <li>(11) 99999-9999</li>
+              <li>oakvizbr@gmail.com</li>
+              <li>(11) 99003-3476</li>
               <li>São Paulo, SP</li>
             </ul>
           </div>
@@ -61,9 +61,18 @@ export default function Footer() {
 
         {/* Bottom Bar */}
         <div className="border-t border-[#F8F6E5]/20 pt-6 mt-6 flex flex-col md:flex-row justify-between items-center text-sm font-light text-[#F8F6E5]/60">
-          <p>© {new Date().getFullYear()} Oak Viz. Todos os direitos reservados.</p>
+          <div className="flex flex-col md:flex-row items-center gap-2 md:gap-4 text-center md:text-left">
+            <p>© {new Date().getFullYear()} Oak Viz. Todos os direitos reservados.</p>
+            <span className="hidden md:inline text-[#F8F6E5]/30">|</span>
+            <p>
+              Desenvolvido por:{" "}
+              <a href="https://aethersolutions.com.br" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors underline decoration-[#F8F6E5]/30 underline-offset-4">
+                aethersolutions.com.br
+              </a>
+            </p>
+          </div>
           <div className="flex space-x-6 mt-4 md:mt-0">
-            <Link href="#" className="hover:text-white transition-colors">Instagram</Link>
+            <a href="https://www.instagram.com/oakviz/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Instagram</a>
             <Link href="#" className="hover:text-white transition-colors">LinkedIn</Link>
           </div>
         </div>
