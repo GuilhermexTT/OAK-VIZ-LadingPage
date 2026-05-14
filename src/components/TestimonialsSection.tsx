@@ -57,7 +57,7 @@ export default function TestimonialsSection({ testimonials = [] }: Props) {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true, amount: 0.3 }}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="snap-center shrink-0 w-[80vw] sm:w-[320px] md:w-[380px] lg:w-[420px] bg-white p-6 md:p-8 rounded-[2rem] shadow-[0_8px_30px_rgba(0,0,0,0.04)] hover:-translate-y-4 hover:shadow-[0_20px_40px_rgba(0,0,0,0.08)] transition-all duration-500 flex flex-col items-center text-center relative"
+                className="snap-center shrink-0 w-[80vw] sm:w-[320px] md:w-[380px] lg:w-[420px] bg-white p-6 md:p-8 rounded-[2rem] shadow-[0_8px_30px_rgba(0,0,0,0.04)] hover:-translate-y-4 hover:shadow-[0_20px_40px_rgba(0,0,0,0.08)] transition-all duration-500 flex flex-col items-center text-center relative force-light-card"
               >
                 {/* Minimalist Top Decorator */}
                 <div className="w-8 h-[1px] bg-marrom-claro-2 mb-6"></div>

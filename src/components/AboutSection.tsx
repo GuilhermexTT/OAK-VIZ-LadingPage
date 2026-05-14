@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 
 export default function AboutSection() {
   return (
-    <section id="sobre" className="bg-[#14250A] text-[#F8F6E5] py-24 md:py-32 px-8 overflow-hidden">
+    <section id="sobre" className="bg-[#14250A] text-[#F8F6E5] py-24 md:py-32 px-8 overflow-hidden force-dark-section">
       <div className="container mx-auto max-w-6xl">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-center">
           
