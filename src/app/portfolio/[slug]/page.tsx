@@ -23,7 +23,7 @@ export default async function PortfolioCategoryPage({ params }: { params: Promis
       _id,
       title,
       "slug": slug.current,
-      "imageUrl": coverImage.asset->url
+      "imageUrl": coverImage.secure_url
     }
   `, { slug });
 

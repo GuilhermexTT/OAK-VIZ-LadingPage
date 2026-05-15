@@ -37,17 +37,14 @@ export const projectType = defineType({
     defineField({
       name: 'coverImage',
       title: 'Foto de Capa',
-      type: 'image',
-      options: {
-        hotspot: true,
-      },
+      type: 'cloudinary.asset',
       validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: 'gallery',
       title: 'Galeria de Fotos',
       type: 'array',
-      of: [{ type: 'image', options: { hotspot: true } }],
+      of: [{ type: 'cloudinary.asset' }],
       description: 'Adicione todas as fotos deste projeto aqui.',
     }),
     defineField({

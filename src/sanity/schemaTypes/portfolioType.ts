@@ -31,10 +31,7 @@ export const portfolioType = defineType({
     defineField({
       name: 'image',
       title: 'Imagem',
-      type: 'image',
-      options: {
-        hotspot: true,
-      },
+      type: 'cloudinary.asset',
       validation: (Rule) => Rule.required(),
     }),
     defineField({

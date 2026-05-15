@@ -62,7 +62,12 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="border-t border-[#F8F6E5]/20 pt-6 mt-6 flex flex-col md:flex-row justify-between items-center text-sm font-light text-[#F8F6E5]/60">
           <div className="flex flex-col md:flex-row items-center gap-2 md:gap-4 text-center md:text-left">
-            <p>© {new Date().getFullYear()} Oak Viz. Todos os direitos reservados.</p>
+            <p>
+              © {new Date().getFullYear()} Oak Viz <span className="mx-1 text-[#F8F6E5]/30">|</span>{" "}
+              <Link href="/termos" className="text-[#F8F6E5]/50 hover:text-white transition-colors">Termos de Uso</Link>{" "}
+              <span className="mx-1 text-[#F8F6E5]/30">|</span>{" "}
+              <Link href="/privacidade" className="text-[#F8F6E5]/50 hover:text-white transition-colors">Privacidade</Link>
+            </p>
             <span className="hidden md:inline text-[#F8F6E5]/30">|</span>
             <p>
               Desenvolvido por:{" "}
@@ -73,7 +78,7 @@ export default function Footer() {
           </div>
           <div className="flex space-x-6 mt-4 md:mt-0">
             <a href="https://www.instagram.com/oakviz/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Instagram</a>
-            <Link href="#" className="hover:text-white transition-colors">LinkedIn</Link>
+            <a href="https://www.linkedin.com/in/gregoriocarvalho" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">LinkedIn</a>
           </div>
         </div>
       </motion.div>

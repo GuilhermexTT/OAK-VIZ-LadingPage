@@ -25,6 +25,7 @@ export default function Hero() {
             alt="Oak Viz Logo" 
             width={1500} 
             height={1500} 
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 70vw, 850px"
             className="w-full h-auto drop-shadow-2xl"
             priority
           />

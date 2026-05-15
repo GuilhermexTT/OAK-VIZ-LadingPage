@@ -25,10 +25,7 @@ export const testimonialType = defineType({
     defineField({
       name: 'image',
       title: 'Foto do Cliente',
-      type: 'image',
-      options: {
-        hotspot: true,
-      },
+      type: 'cloudinary.asset',
     }),
   ],
 })

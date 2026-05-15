@@ -23,8 +23,8 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
     *[_type == "project" && slug.current == $slug][0] {
       title,
       category,
-      "coverImage": coverImage.asset->url,
-      "gallery": gallery[].asset->url,
+      "coverImage": coverImage.secure_url,
+      "gallery": gallery[].secure_url,
       youtubeVideos
     }
   `, { slug });

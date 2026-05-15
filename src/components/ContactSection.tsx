@@ -39,8 +39,9 @@ export default function ContactSection() {
               <Mail size={24} strokeWidth={1.5} />
             </a>
             <a 
-              href="#" 
+              href="https://www.linkedin.com/in/gregoriocarvalho" 
               target="_blank"
+              rel="noopener noreferrer"
               className="p-4 rounded-full bg-[#14250A]/5 text-[#14250A] hover:bg-[#14250A] hover:text-[#F8F6E5] transition-all duration-300"
               title="LinkedIn"
             >

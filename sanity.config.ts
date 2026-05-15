@@ -1,5 +1,6 @@
 import { defineConfig } from 'sanity'
 import { structureTool } from 'sanity/structure'
+import { cloudinarySchemaPlugin } from 'sanity-plugin-cloudinary'
 import { projectId, dataset } from './src/sanity/env'
 import { schema } from './src/sanity/schemaTypes'
 
@@ -10,5 +11,6 @@ export default defineConfig({
   schema,
   plugins: [
     structureTool(),
+    cloudinarySchemaPlugin(),
   ],
 })

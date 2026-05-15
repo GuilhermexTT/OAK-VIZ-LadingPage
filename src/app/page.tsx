@@ -20,7 +20,17 @@ export default async function Home() {
       name,
       role,
       quote,
-      "imageUrl": image.asset->url
+      "imageUrl": image.secure_url
+    }
+  `);
+
+  // Fetch portfolio categories for the grid
+  const portfolioItems = await client.fetch(`
+    *[_type == "portfolio"] | order(order asc) {
+      _id,
+      category,
+      "slug": slug.current,
+      "imageUrl": image.secure_url
     }
   `);
 
@@ -28,7 +38,7 @@ export default async function Home() {
     <main className="min-h-screen">
       <Navbar />
       <Hero />
-      <PortfolioSections />
+      <PortfolioSections portfolioItems={portfolioItems} />
       <AboutSection />
       <TestimonialsSection testimonials={testimonials} />
       <ContactSection />
