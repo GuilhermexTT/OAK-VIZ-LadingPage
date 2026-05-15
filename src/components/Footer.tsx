@@ -44,6 +44,7 @@ export default function Footer() {
               <li><Link href="#portfolio" className="hover:text-[#DC9949] transition-colors">Portifólio</Link></li>
               <li><Link href="#sobre" className="hover:text-[#DC9949] transition-colors">Sobre a Oak Viz</Link></li>
               <li><Link href="#depoimentos" className="hover:text-[#DC9949] transition-colors">Depoimentos</Link></li>
+              <li><Link href="/faq" className="hover:text-[#DC9949] transition-colors">Dúvidas Frequentes</Link></li>
             </ul>
           </div>
 
@@ -66,7 +67,9 @@ export default function Footer() {
               © {new Date().getFullYear()} Oak Viz <span className="mx-1 text-[#F8F6E5]/30">|</span>{" "}
               <Link href="/termos" className="text-[#F8F6E5]/50 hover:text-white transition-colors">Termos de Uso</Link>{" "}
               <span className="mx-1 text-[#F8F6E5]/30">|</span>{" "}
-              <Link href="/privacidade" className="text-[#F8F6E5]/50 hover:text-white transition-colors">Privacidade</Link>
+              <Link href="/privacidade" className="text-[#F8F6E5]/50 hover:text-white transition-colors">Privacidade</Link>{" "}
+              <span className="mx-1 text-[#F8F6E5]/30">|</span>{" "}
+              <Link href="/faq" className="text-[#F8F6E5]/50 hover:text-white transition-colors">FAQ</Link>
             </p>
             <span className="hidden md:inline text-[#F8F6E5]/30">|</span>
             <p>
