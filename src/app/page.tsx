@@ -8,9 +8,8 @@ import Footer from "@/components/Footer";
 import BackToTop from "@/components/BackToTop";
 import { client } from "@/sanity/lib/client";
 
-// Turn off caching for this page so data is always fresh, 
-// or you can configure Next.js revalidation strategy instead.
-export const revalidate = 60; // revalidate every 60 seconds
+// Desliga o cache para que edições no Sanity sejam refletidas instantaneamente ao atualizar a página
+export const revalidate = 0;
 
 export default async function Home() {
   // Fetch testimonials

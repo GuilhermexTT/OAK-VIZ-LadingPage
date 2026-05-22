@@ -4,8 +4,7 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import ProjectGrid from '@/components/ProjectGrid';
 
-// Desativar cache para dados frescos
-export const revalidate = 60;
+export const revalidate = 0; // Desativa o cache para dados sempre frescos imediatamente após edições no Sanity
 
 type Project = {
   _id: string;
@@ -16,6 +15,7 @@ type Project = {
 
 export default async function PortfolioCategoryPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
+  const decodedSlug = decodeURIComponent(slug); // Garante a decodificação de acentos na URL
 
   // Busca os projetos dessa categoria (case-insensitive para garantir que apareçam)
   const projects = await client.fetch<Project[]>(`
@@ -25,7 +25,7 @@ export default async function PortfolioCategoryPage({ params }: { params: Promis
       "slug": slug.current,
       "imageUrl": coverImage.secure_url
     }
-  `, { slug });
+  `, { slug: decodedSlug });
 
   const categoryName = slug === 'arquitetura' ? 'Arquitetura' : slug === 'corporativo' ? 'Corporativo' : slug;
 

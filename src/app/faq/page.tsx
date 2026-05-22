@@ -4,7 +4,7 @@ import BackToTop from "@/components/BackToTop";
 import { client } from "@/sanity/lib/client";
 import FAQList from "@/components/FAQList";
 
-export const revalidate = 60;
+export const revalidate = 0; // Desativa o cache para refletir edições imediatamente ao atualizar a página
 
 export default async function FAQPage() {
   const faqs = await client.fetch(`

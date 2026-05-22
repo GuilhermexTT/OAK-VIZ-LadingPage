@@ -5,7 +5,7 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import ProjectGallery from '@/components/ProjectGallery';
 
-export const revalidate = 60;
+export const revalidate = 0; // Desativa o cache para que edições no Sanity Studio apareçam imediatamente ao atualizar
 
 type ProjectDetail = {
   title: string;
@@ -18,6 +18,7 @@ type ProjectDetail = {
 
 export default async function ProjectDetailPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
+  const decodedSlug = decodeURIComponent(slug); // Decodifica acentos e caracteres especiais da URL (ex: %C3%B3 -> ó)
 
   const projectData = await client.fetch<any>(`
     *[_type == "project" && slug.current == $slug][0] {
@@ -27,7 +28,7 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
       "gallery": gallery[].secure_url,
       youtubeVideos
     }
-  `, { slug });
+  `, { slug: decodedSlug });
 
   if (!projectData) {
     return (
@@ -45,6 +46,7 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
     ...projectData,
     categorySlug,
     categoryName,
+    gallery: (projectData.gallery || []).filter(Boolean), // Evita que valores nulos quebrem o componente de imagem do Next.js
   };
 
   return (
