@@ -49,16 +49,17 @@ export default function TestimonialsSection({ testimonials = [] }: Props) {
         
       <div className="w-full overflow-hidden">
         {testimonials.length > 0 ? (
-          <div className="flex overflow-x-auto pt-10 pb-12 snap-x snap-mandatory gap-6 md:gap-8 px-[10vw] md:px-8 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
-            {testimonials.map((t, i) => (
-              <motion.div 
-                key={t._id}
-                initial={{ opacity: 0, scale: 0.95 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true, amount: 0.3 }}
-                transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="snap-center shrink-0 w-[80vw] sm:w-[320px] md:w-[380px] lg:w-[420px] bg-white p-6 md:p-8 rounded-[2rem] shadow-[0_8px_30px_rgba(0,0,0,0.04)] hover:-translate-y-4 hover:shadow-[0_20px_40px_rgba(0,0,0,0.08)] transition-all duration-500 flex flex-col items-center text-center relative force-light-card"
-              >
+          <div className="overflow-x-auto pt-10 pb-12 snap-x snap-mandatory [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
+            <div className="flex gap-6 md:gap-8 px-[10vw] md:px-8 mx-auto min-w-max justify-center">
+              {testimonials.map((t, i) => (
+                <motion.div 
+                  key={t._id}
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true, amount: 0.3 }}
+                  transition={{ duration: 0.5, delay: i * 0.1 }}
+                  className="snap-center shrink-0 w-[80vw] sm:w-[320px] md:w-[380px] lg:w-[420px] bg-white p-6 md:p-8 rounded-[2rem] shadow-[0_8px_30px_rgba(0,0,0,0.04)] hover:-translate-y-4 hover:shadow-[0_20px_40px_rgba(0,0,0,0.08)] transition-all duration-500 flex flex-col items-center text-center relative force-light-card"
+                >
                 {/* Minimalist Top Decorator */}
                 <div className="w-8 h-[1px] bg-marrom-claro-2 mb-6"></div>
                 
@@ -83,7 +84,8 @@ export default function TestimonialsSection({ testimonials = [] }: Props) {
                   {t.role && <p className="text-[#587149] text-[11px] mt-1.5 uppercase tracking-widest font-light">{t.role}</p>}
                 </div>
               </motion.div>
-            ))}
+              ))}
+            </div>
           </div>
         ) : (
           <p className="text-center text-lg text-[#14250A]/60 italic">
