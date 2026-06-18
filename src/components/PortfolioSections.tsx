@@ -2,8 +2,9 @@
 
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-
 import Link from 'next/link';
+import { getOptimizedCloudinaryUrl } from '@/sanity/lib/image';
+
 
 const defaultNiches = [
   {
@@ -67,7 +68,7 @@ export default function PortfolioSections({ portfolioItems = [] }: Props) {
                 {/* Image Container */}
                 <div className="relative w-full aspect-[4/5] overflow-hidden">
                   <Image 
-                    src={niche.imageUrl}
+                    src={getOptimizedCloudinaryUrl(niche.imageUrl, 1000)}
                     alt={niche.category}
                     fill
                     sizes="(max-width: 768px) 100vw, 50vw"

@@ -3,6 +3,8 @@
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import Image from 'next/image';
+import { getOptimizedCloudinaryUrl } from '@/sanity/lib/image';
+
 
 type Project = {
   _id: string;
@@ -31,7 +33,7 @@ export default function ProjectGrid({ projects }: ProjectGridProps) {
               {/* Image Container */}
               <div className="relative w-full aspect-[4/5] overflow-hidden">
                 <Image 
-                  src={project.imageUrl || '/placeholder.jpg'} 
+                  src={getOptimizedCloudinaryUrl(project.imageUrl, 1000) || '/placeholder.jpg'} 
                   alt={project.title} 
                   fill 
                   className="object-cover transition-transform duration-1000 group-hover:scale-105"

@@ -1,8 +1,9 @@
 'use client';
 
 import { motion } from 'framer-motion';
-
 import Image from 'next/image';
+import { getOptimizedCloudinaryUrl } from '@/sanity/lib/image';
+
 
 type Testimonial = {
   _id: string;
@@ -66,7 +67,7 @@ export default function TestimonialsSection({ testimonials = [] }: Props) {
                 {/* Quote Text */}
                 <div className="mb-8 flex-grow flex items-center justify-center">
                   <p className="font-classic text-lg md:text-xl leading-[1.7] text-[#1B0F03] italic font-light tracking-wide">
-                    "{t.quote}"
+                    &ldquo;{t.quote}&rdquo;
                   </p>
                 </div>
                 
@@ -77,7 +78,7 @@ export default function TestimonialsSection({ testimonials = [] }: Props) {
                 <div className="flex flex-col items-center">
                   {t.imageUrl && (
                     <div className="relative w-14 h-14 rounded-full overflow-hidden mb-4 border border-[#14250A]/10 shadow-sm">
-                      <Image src={t.imageUrl} alt={t.name} fill className="object-cover" />
+                      <Image src={getOptimizedCloudinaryUrl(t.imageUrl, 150)} alt={t.name} fill className="object-cover" />
                     </div>
                   )}
                   <h4 className="font-sans font-medium text-[#1B0F03] text-[13px] uppercase tracking-[0.15em]">{t.name}</h4>

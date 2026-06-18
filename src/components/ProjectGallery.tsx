@@ -4,6 +4,8 @@ import { useState } from 'react';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, ChevronLeft, ChevronRight } from 'lucide-react';
+import { getOptimizedCloudinaryUrl } from '@/sanity/lib/image';
+
 
 interface ProjectGalleryProps {
   images: string[];
@@ -51,7 +53,7 @@ export default function ProjectGallery({ images, projectTitle }: ProjectGalleryP
             onClick={() => openLightbox(index)}
           >
             <Image
-              src={imgUrl}
+              src={getOptimizedCloudinaryUrl(imgUrl, 1200)}
               alt={`Foto ${index + 1} de ${projectTitle}`}
               width={1200}
               height={1600}
@@ -118,7 +120,7 @@ export default function ProjectGallery({ images, projectTitle }: ProjectGalleryP
               onClick={(e) => e.stopPropagation()}
             >
               <Image
-                src={images[selectedIndex]}
+                src={getOptimizedCloudinaryUrl(images[selectedIndex], 2000)}
                 alt={`Ampliada ${selectedIndex + 1}`}
                 fill
                 className="object-contain pointer-events-none select-none"

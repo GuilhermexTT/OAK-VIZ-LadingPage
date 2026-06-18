@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Mail, MessageCircle, ExternalLink } from 'lucide-react';
+import { Mail, MessageCircle } from 'lucide-react';
 
 export default function ContactSection() {
   const whatsappNumber = "5511990033476"; 
