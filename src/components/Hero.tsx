@@ -33,7 +33,7 @@ export default function Hero() {
         
         {/* Slogan */}
         <p className="font-classic text-2xl md:text-3xl lg:text-5xl italic font-light text-marrom-escuro-1/80 tracking-[0.05em] animate-fade-in text-center mb-10 md:mb-12">
-          A imagem fala antes de qualquer coisa
+          A imagem fala antes de tudo
         </p>
 
         {/* Button */}
